@@ -1,11 +1,19 @@
+---
+import { ToggleTheme } from "./ToggleTheme";
+---
+
 <nav>
-  <div class="container mx-auto max-w-6xl px-6 py-4 md:flex md:items-center md:justify-between">
+  <div
+    class="container mx-auto max-w-6xl px-6 py-4 md:flex md:items-center md:justify-between"
+  >
     <a class="text-3xl font-bold text-blue" href="/">
       Clement Cornet
       <span class="text-black">.</span>
     </a>
     <ul class="flex items-center">
-      <li>ToggleMode</li>
+      <li>
+        <ToggleTheme client:load />
+      </li>
       <li>
         <a href="/about/">About</a>
       </li>
