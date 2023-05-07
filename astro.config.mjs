@@ -1,8 +1,8 @@
-import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
-import Icons from "unplugin-icons/vite";
+import { defineConfig } from "astro/config"
+import tailwind from "@astrojs/tailwind"
+import Icons from "unplugin-icons/vite"
 
-import react from "@astrojs/react";
+import react from "@astrojs/react"
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,4 +15,4 @@ export default defineConfig({
       Icons({ compiler: "jsx", jsx: "react" }),
     ],
   },
-});
+})
