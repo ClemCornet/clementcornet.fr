@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useRef } from "react"
 import { useStore } from "@nanostores/react"
-import { useScrollPosition } from "../hooks/useScrollPosition"
+
 import { navigationStore, setNavigation } from "../stores/navigationStore"
+import { useScrollPosition } from "../hooks/useScrollPosition"
 
 import { HeroNavigation } from "./HeroNavigation"
 
@@ -12,7 +13,7 @@ export const Hero = () => {
 
   const hiddenNav = (scrollPosition: number) => {
     if (navigationRef.current) {
-      if (scrollPosition + 100 <= navigationRef.current.offsetTop) {
+      if (scrollPosition + 120 <= navigationRef.current.offsetTop) {
         setNavigation("static")
       } else {
         setNavigation("sticky")
@@ -42,7 +43,7 @@ export const Hero = () => {
           </div>
         </div>
         <div>
-          <h1 className="text-3xl font-bold text-blue">Clément</h1>
+          <h1 className="text-3xl font-bold text-blue">Clement</h1>
           <h2 className="text-lg text-slate-400">
             Front end developer at Le Collectionist
           </h2>

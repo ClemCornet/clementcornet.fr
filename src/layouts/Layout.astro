@@ -1,11 +1,11 @@
 ---
 import TheNavigation from "../components/TheNavigation.astro"
+import { TopNavigation } from "../components/TopNavigation"
 export interface Props {
   title: string
 }
 
 const { title } = Astro.props
-localStorage.setItem("navigation", "static")
 ---
 
 <!DOCTYPE html>
@@ -21,6 +21,7 @@ localStorage.setItem("navigation", "static")
     class="h-full bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] dark:from-blue dark:via-slate-800 dark:via-55% dark:to-black dark:to-100%"
   >
     <TheNavigation />
+    <TopNavigation client:load />
     <slot />
   </body>
 </html>
