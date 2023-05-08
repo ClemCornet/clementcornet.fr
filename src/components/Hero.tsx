@@ -1,22 +1,29 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useMemo, useRef } from "react"
+import { useStore } from "@nanostores/react"
 import { useScrollPosition } from "../hooks/useScrollPosition"
+import { navigationStore, setNavigation } from "../stores/navigationStore"
 
 import { HeroNavigation } from "./HeroNavigation"
 
 export const Hero = () => {
-  const [opacity, setOpacity] = useState("opacity-100")
-  const scrollPosition = useScrollPosition(400)
   const navigationRef = useRef<HTMLDivElement>(null)
+  const scrollPosition = useScrollPosition()
+  const navigation = useStore(navigationStore)
 
   const hiddenNav = (scrollPosition: number) => {
     if (navigationRef.current) {
       if (scrollPosition + 100 <= navigationRef.current.offsetTop) {
-        setOpacity("opacity-100")
+        setNavigation("static")
       } else {
-        setOpacity("opacity-0")
+        setNavigation("sticky")
       }
     }
   }
+
+  const opacity = useMemo(
+    () => (navigation === "static" ? "opacity-100" : "opacity-0"),
+    [navigation]
+  )
 
   useEffect(() => {
     hiddenNav(scrollPosition)
