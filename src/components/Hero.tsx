@@ -33,12 +33,26 @@ export const Hero = () => {
   return (
     <div className={`transition duration-300 ${opacity}`}>
       <div className="flex items-center space-x-6">
-        <div className="rounded-full bg-gradient-to-tl from-blue/60 to-slate-900/80 p-[3px] shadow-lg ring-[5px] ring-blue/20">
-          <div className="h-[90px] w-[90px] rounded-full p-px">
+        <div className="
+        h-[110px] 
+        w-[110px]
+        p-[10px]    
+        dark:bg-blue/20
+        bg-slate-300
+        rounded-full
+        ">
+          <div className="
+          h-[90px] 
+          w-[90px]
+          ring-[4px] 
+          dark:ring-blue/60
+          ring-blue/90
+          rounded-full  
+        ">
             <img
               src="/assets/profile-picture.png"
               alt="Profile picture"
-              className="rounded-full"
+              className="w-full h-full rounded-full"
             />
           </div>
         </div>
@@ -49,7 +63,7 @@ export const Hero = () => {
           </h2>
         </div>
       </div>
-      <p className="mt-7 text-xl text-slate-200">
+      <p className="mt-7 text-xl text-slate-600 dark:text-slate-200">
         Welcome to my digital garden where I share what I'm learning about
         shipping great products, becoming a better developer and growing a
         career in tech.
