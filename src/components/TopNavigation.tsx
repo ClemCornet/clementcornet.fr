@@ -3,6 +3,7 @@ import { useStore } from "@nanostores/react"
 
 import { navigationStore } from "../stores/navigationStore"
 
+import { HeroNavigation } from "./HeroNavigation"
 import { ToggleTheme } from "./ToggleTheme"
 
 export const TopNavigation = () => {
@@ -16,27 +17,21 @@ export const TopNavigation = () => {
 
   return (
     <div
-      className={`container sticky top-10 mx-auto max-w-2xl transition duration-300 ${opacity} rounded-2xl px-4 py-2.5 backdrop-blur will-change-transform [@supports(backdrop-filter:blur(0px))]:bg-white/[3%]`}
+      className={`container sticky top-10 mx-auto flex max-w-2xl items-center justify-between transition duration-300 ${opacity} rounded-2xl px-4 py-4 backdrop-blur will-change-transform [@supports(backdrop-filter:blur(0px))]:bg-white/[3%]`}
     >
-      <nav className={`flex justify-center text-slate-400`}>
-        <ul className="flex space-x-6">
-          <li>
-            <a href="/">About</a>
-          </li>
-          <li>
-            <a href="/skills">Skills</a>
-          </li>
-          <li>
-            <a href="">Twitter</a>
-          </li>
-          <li>
-            <a href="">Github</a>
-          </li>
-        </ul>
-        <div className="ml-8">
-          <ToggleTheme />
+      <div className="h-[50px] w-[50px] rounded-full ring-[4px] ring-blue/90 dark:ring-blue/60">
+        <img
+          src="/assets/profile-picture.png"
+          alt="Profile picture"
+          className="h-full w-full rounded-full"
+        />
+      </div>
+      <div className={`flex items-center justify-center text-slate-400`}>
+        <HeroNavigation />
+        <div className="ml-6">
+          <ToggleTheme iconsSize="1.2em" />
         </div>
-      </nav>
+      </div>
     </div>
   )
 }
