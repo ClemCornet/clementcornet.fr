@@ -1,12 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro"
 import { Hero } from "../components/Hero"
+import { Experiences } from "../components/Experiences"
+
 import Card from "../components/Card.astro"
 ---
 
 <Layout title="Welcome to Astro.">
-  <main class="container mx-auto max-w-2xl pt-48">
+  <main class="container mx-auto mt-32 max-w-2xl">
     <Hero client:load />
+    <Experiences client:load />
     <Card
       title="Title 01"
       body="Donec sed neque quis turpis maximus iaculis. Etiam id elit eget orci sodales consequat. Phasellus aliquam arcu ac eros aliquam, id scelerisque mi lobortis. Aliquam porta, metus venenatis auctor vehicula, est odio dignissim augue, vitae pellentesque enim lorem nec ex. Nullam vel diam varius, egestas nisi et, elementum massa."

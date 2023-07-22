@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .custom-li-disc:before {
+    content: "";
+    position: relative;
+    top: -2px;
+    background-color: rgb(148 163 184);
+    border-radius: 100%;
+    font-weight: bold;
+    display: inline-block;
+    width: 0.35em;
+    height: 0.35em;
+    margin-right: 0.35rem;
+  }
+}
