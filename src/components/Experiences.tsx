@@ -58,8 +58,10 @@ export const Experiences = ({}) => {
   }
 
   return (
-    <section>
-      <h2 className="mb-3 text-2xl text-blue dark:text-white">Experiences</h2>
+    <section className="mb-16">
+      <h2 className="mb-3 text-2xl font-medium text-blue dark:text-white">
+        Work experience
+      </h2>
       <ul className="flex flex-col">
         {experiences.map((item, idx) => (
           <li
@@ -94,7 +96,6 @@ export const Experiences = ({}) => {
             </div>
             {collapsedIndex === idx && (
               <div className="mt-4">
-                {/* <h3 className="text-md mb-4 text-white">{item.contentTitle}</h3> */}
                 <ul className="list-none text-white">
                   {item.contentSkills.map((skill) => (
                     <li className="custom-li-disc mb-2">{skill}</li>

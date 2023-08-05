@@ -44,34 +44,7 @@ export const HeroNavigation = forwardRef<RefType, PropsType>(
               key={id}
               className="group relative flex cursor-pointer items-center"
             >
-              <div
-                className="
-                  relative
-                  mr-2 
-                  rounded-lg
-                  p-1 
-                  text-slate-700 
-                  transition-all 
-                  duration-300 
-                  ease-out 
-                  after:absolute 
-                  after:inset-x-0
-                  after:bottom-0
-                  after:top-6 
-                  after:block 
-                  after:h-4
-                  after:w-6
-                  after:overflow-hidden 
-                  group-hover:scale-125
-                  dark:bg-gradient-to-tl
-                  dark:from-blue
-                  dark:via-blue/60
-                  dark:to-blue/20 
-                  dark:text-slate-400
-                  dark:group-hover:after:bg-blue/50
-                  dark:group-hover:after:blur-md
-                  "
-              >
+              <div className="relative mr-2 rounded-lg p-1 text-slate-700 transition-all duration-300 ease-out after:overflow-hidden group-hover:scale-125 dark:bg-gradient-to-tl dark:from-blue dark:via-blue/60 dark:to-blue/20 dark:text-slate-400 dark:after:absolute dark:after:inset-x-0 dark:after:bottom-0 dark:after:top-6 dark:after:block dark:after:h-4 dark:after:w-6 dark:group-hover:after:bg-blue/50 dark:group-hover:after:blur-md">
                 {component}
               </div>
               <a className="text-slate-400" href={link}>

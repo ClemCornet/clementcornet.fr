@@ -1,0 +1,63 @@
+---
+import SkillsCard from "./SkillsCard.astro"
+
+type Cards = Record<string, { title: string; skills: string[]; style: string }>
+
+const cards: Cards = {
+  frontend: {
+    title: "frontend",
+    skills: [
+      "vue",
+      "react",
+      "nuxt",
+      "astro",
+      "vite",
+      "webpack",
+      "tailwindcss",
+      "scss",
+      "typescript",
+      "apollo",
+      "graphql",
+      "redux",
+      "pinia",
+    ],
+    style: "col-span-3 row-span-2",
+  },
+  backend: {
+    title: "backend",
+    skills: [
+      "nodejs",
+      "express",
+      "nestjs",
+      "pgsql",
+      "strapi",
+      "graphql",
+      "prisma",
+      "typeorm",
+    ],
+    style: "col-span-3 col-start-1 row-span-2 row-start-3",
+  },
+  mobile: {
+    title: "mobile",
+    skills: ["react native", "expo", "react navigation", "reanimated"],
+    style: "col-span-2 col-start-4 row-span-4 row-start-1",
+  },
+}
+---
+
+<section>
+  <h2 class="mb-3 w-full text-2xl font-medium text-blue dark:text-white">
+    Skills
+  </h2>
+  <div class="grid grid-cols-5 grid-rows-4 gap-4">
+    {
+      Object.keys(cards).map((key) => (
+        <SkillsCard
+          title={cards[key].title}
+          skills={cards[key].skills}
+          style={cards[key].style}
+        />
+      ))
+    }
+  </div>
+</section>
