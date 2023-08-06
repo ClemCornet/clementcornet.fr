@@ -8,11 +8,6 @@ import react from "@astrojs/react"
 export default defineConfig({
   integrations: [tailwind(), react()],
   vite: {
-    plugins: [
-      // Icons({
-      //   compiler: "astro",
-      // }),
-      Icons({ compiler: "jsx", jsx: "react" }),
-    ],
+    plugins: [Icons({ compiler: "jsx", jsx: "react" })],
   },
 })
