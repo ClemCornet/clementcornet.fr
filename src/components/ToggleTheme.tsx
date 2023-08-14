@@ -1,3 +1,4 @@
+import { useLoaded } from "../hooks/useLoaded"
 import { useThemeSwitcher } from "../hooks/useThemeSwitcher"
 import IconLightMode from "~icons/ic/outline-light-mode"
 import IconDarkMode from "~icons/mdi/weather-night"
@@ -9,11 +10,12 @@ export const ToggleTheme = ({
   iconsSize?: string
   [x: string]: any
 }) => {
+  const loaded = useLoaded()
   const { theme, toggleTheme } = useThemeSwitcher()
 
   return (
     <button onClick={() => toggleTheme()}>
-      {theme === "light" ? (
+      {loaded && theme === "light" ? (
         <IconDarkMode style={{ fontSize: iconsSize, color: "rgb(51 65 85)" }} />
       ) : (
         <IconLightMode

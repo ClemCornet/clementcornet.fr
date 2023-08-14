@@ -12,8 +12,8 @@ export const Experiences = ({}) => {
       contentSkills: [
         "React Native (with expo)",
         "Vue 2 & 3 / Nuxt.js / SPA / SSR",
-        "Tailwind, Vite",
-        "Ruby on Rails, Strapi",
+        "Vuex, Pinia, Tailwind, Vite, Jest",
+        "Rest api: Ruby on Rails, Strapi",
       ],
     },
     {
@@ -21,10 +21,9 @@ export const Experiences = ({}) => {
       company: "Meero",
       post: "Front-end developer",
       contentSkills: [
-        "React Native (with expo)",
-        "Vue 2 & 3 / Nuxt.js / SPA / SSR",
-        "Tailwind, Vite",
-        "Ruby on Rails, Strapi",
+        "Vue 2 SPA & twig",
+        "Vuex, SASS, Webpack, Jest",
+        "Rest api: PHP symfony",
       ],
     },
     {
@@ -32,22 +31,19 @@ export const Experiences = ({}) => {
       company: "Coding bootcamp",
       post: "Web Development",
       contentSkills: [
-        "React Native (with expo)",
-        "Vue 2 & 3 / Nuxt.js / SPA / SSR",
-        "Tailwind, Vite",
-        "Ruby on Rails, Strapi",
+        "HTML, CSS and Javascript",
+        "React, Jest",
+        "UML, technical and functional documentation",
       ],
     },
     {
       year: "2015 - 2018",
-      company: "",
-      post: "Project manager",
-      contentTitle: "Luxury villas and chalets renting plateform",
+      company: "Travel industry",
+      post: "Traffic manager",
       contentSkills: [
-        "React Native (with expo)",
-        "Vue 2 & 3 / Nuxt.js / SPA / SSR",
-        "Tailwind, Vite",
-        "Ruby on Rails, Strapi",
+        "Management of ads campaigns",
+        "Acquisition, retargeting",
+        "Excel & monitoring tools",
       ],
     },
   ]
@@ -70,13 +66,13 @@ export const Experiences = ({}) => {
             className="flex cursor-pointer flex-col border-b px-1 py-4"
           >
             <div className="flex items-center justify-between">
-              <div className="w-2/12 font-medium text-slate-400 opacity-80">
+              <div className="w-3/12 font-medium text-slate-400">
                 {item.year}
               </div>
-              <div className="w-8/12 text-slate-600 dark:text-white">
+              <div className="w-7/12 text-slate-600 dark:text-white">
                 <span>{item.post}</span>
                 {item.company && (
-                  <span className="italic">- {item.company}</span>
+                  <span className="italic"> - {item.company}</span>
                 )}
               </div>
               <div className="flex w-1/12">
@@ -97,8 +93,13 @@ export const Experiences = ({}) => {
             {collapsedIndex === idx && (
               <div className="mt-4">
                 <ul className="list-none text-white">
-                  {item.contentSkills.map((skill) => (
-                    <li className="custom-li-disc mb-2">{skill}</li>
+                  {item.contentSkills.map((skill, idx) => (
+                    <li
+                      key={idx}
+                      className="custom-li-disc mb-3 text-slate-600 dark:text-white"
+                    >
+                      {skill}
+                    </li>
                   ))}
                 </ul>
               </div>
