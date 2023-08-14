@@ -8,7 +8,7 @@ export const Experiences = ({}) => {
     {
       year: "2021 - Present",
       company: "Le Collectionist",
-      post: "Front-end & Mobile developer",
+      post: "Front end & Mobile developer",
       contentSkills: [
         "React Native (with expo)",
         "Vue 2 & 3 / Nuxt.js / SPA / SSR",
@@ -19,7 +19,7 @@ export const Experiences = ({}) => {
     {
       year: "2019 - 2020",
       company: "Meero",
-      post: "Front-end developer",
+      post: "Front end developer",
       contentSkills: [
         "Vue 2 SPA & twig",
         "Vuex, SASS, Webpack, Jest",

@@ -1,6 +1,7 @@
 ---
 import "../styles/main.css"
 import TheNavigation from "../components/TheNavigation.astro"
+import TheFooter from "../components/TheFooter.astro"
 import { TopNavigation } from "../components/TopNavigation"
 export interface Props {
   title: string
@@ -19,11 +20,12 @@ const { title } = Astro.props
     <title>{title}</title>
   </head>
   <body
-    class="h-full bg-slate-100 dark:bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] dark:from-blue dark:via-slate-800 dark:via-55% dark:to-black dark:to-100%"
+    class="bg-slate-100 dark:bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] dark:from-blue dark:via-slate-800 dark:via-55% dark:to-black dark:to-100%"
   >
     <TheNavigation />
     <TopNavigation client:load />
     <slot />
+    <TheFooter />
   </body>
 </html>
 <style is:global>

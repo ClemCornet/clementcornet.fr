@@ -1,86 +1,22 @@
 ---
-import type Card from "./Card.astro"
-import SkillsCard from "./SkillsCard.astro"
-
-type Card = { title: string; skills: string[]; style?: string }
-type Cards = Record<string, Card | Card[]>
-
-const cards: Cards = {
-  frontend: {
-    title: "frontend",
-    skills: [
-      "vue",
-      "react",
-      "nuxt",
-      "astro",
-      "tailwindcss",
-      "scss",
-      "typescript",
-      "apollo",
-      "graphql",
-      "redux",
-      "pinia",
-    ],
-    style: "col-span-3 row-span-2",
-  },
-  backend: {
-    title: "backend",
-    skills: [
-      "nodejs",
-      "express",
-      "nestjs",
-      "pgsql",
-      "strapi",
-      "graphql",
-      "prisma",
-      "typeorm",
-    ],
-    style: "col-span-3 col-start-1 row-span-2 row-start-3",
-  },
-  mobile: {
-    title: "mobile",
-    skills: ["react native", "expo", "react navigation", "reanimated"],
-    style: "col-span-2 col-start-4 row-span-4 row-start-1",
-  },
-  other: [
-    {
-      title: "Tools",
-      skills: [
-        "vite",
-        "webpack",
-        "git & github",
-        "circleCI",
-        "github actions",
-        "figma",
-      ],
-    },
-    {
-      title: "Test",
-      skills: ["jest", "vue test utils", "testing library"],
-    },
-  ],
-}
+import Card from "./Card.astro"
 ---
 
 <section>
   <h2 class="mb-3 w-full text-2xl font-medium text-blue dark:text-white">
-    Skills
+    Posts
   </h2>
-  <div class="grid grid-cols-5 grid-rows-4 gap-4">
-    {
-      Object.keys(cards).map((key) => {
-        const element = cards[key] as Card
-
-        return Array.isArray(cards[key]) ? (
-          <SkillsCard others={element as unknown as Card[]} />
-        ) : (
-          <SkillsCard
-            title={element.title}
-            skills={element.skills}
-            style={element.style}
-          />
-        )
-      })
-    }
+  <div class="flex h-64 items-center justify-center">
+    <p class="text-2xl font-light text-slate-200">Upcoming...</p>
   </div>
+  <!-- <Card
+    title="Title 01"
+    body="Donec sed neque quis turpis maximus iaculis. Etiam id elit eget orci sodales consequat. Phasellus aliquam arcu ac eros aliquam, id scelerisque mi lobortis. Aliquam porta, metus venenatis auctor vehicula, est odio dignissim augue, vitae pellentesque enim lorem nec ex. Nullam vel diam varius, egestas nisi et, elementum massa."
+    href="http://google.fr"
+  />
+  <Card
+    title="Title 01"
+    body="Donec sed neque quis turpis maximus iaculis. Etiam id elit eget orci sodales consequat. Phasellus aliquam arcu ac eros aliquam, id scelerisque mi lobortis. Aliquam porta, metus venenatis auctor vehicula, est odio dignissim augue, vitae pellentesque enim lorem nec ex. Nullam vel diam varius, egestas nisi et, elementum massa."
+    href="http://google.fr"
+  /> -->
 </section>

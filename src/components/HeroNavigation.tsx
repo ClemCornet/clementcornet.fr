@@ -38,16 +38,16 @@ export const HeroNavigation = forwardRef<RefType, PropsType>(
 
     return (
       <nav ref={ref} {...props}>
-        <ul className="flex space-x-6 font-medium">
+        <ul className="flex w-full justify-around space-x-6 font-medium md:justify-normal">
           {items.map(({ id, component, link, text }) => (
             <li
               key={id}
-              className="group relative flex cursor-pointer items-center"
+              className="group relative flex cursor-pointer flex-col items-center justify-center md:flex-row md:justify-start"
             >
               <div
                 className="
               relative
-              mr-2
+              mb-2
               rounded-lg
               bg-gradient-to-tl
               from-slate-200
@@ -72,11 +72,13 @@ export const HeroNavigation = forwardRef<RefType, PropsType>(
               dark:after:h-4
               dark:after:w-6
               dark:group-hover:after:bg-blue/50
-              dark:group-hover:after:blur-md"
+              dark:group-hover:after:blur-md
+              md:mb-0
+              md:mr-2"
               >
                 {component}
               </div>
-              <a className="text-slate-400" href={link}>
+              <a className="text-sm text-slate-400 md:text-base" href={link}>
                 {text}
               </a>
             </li>
