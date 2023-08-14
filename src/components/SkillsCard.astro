@@ -1,26 +1,48 @@
 ---
 export interface Props {
-  title: string
-  skills: string[]
-  style: string
+  title?: string
+  skills?: string[]
+  style?: string
+  others?: { title: string; skills: string[] }[]
 }
 
-const { title, skills, style } = Astro.props
+const { title, skills, style, others } = Astro.props
 ---
 
 <div
-  class={`${style} rounded-lg border-2 border-slate-400 dark:border-slate-500 dark:bg-slate-800 bg-slate-100 p-4 cursor-default`}
+  class={`${
+    !others ? style : "col-span-5 row-span-2"
+  } rounded-lg border-2 border-slate-400 dark:border-slate-500 dark:bg-slate-800 bg-slate-100 p-4 cursor-default`}
 >
-  <h3 class="mb-4 text-xl font-semibold text-slate-600 dark:text-slate-200">
-    {title}
-  </h3>
-  <div class="flex flex-wrap">
-    {
-      skills.map((skill) => (
-        <div class="mx-1 my-2 rounded-full bg-slate-200 px-2 font-medium text-slate-600 dark:bg-blue/60 dark:text-slate-200">
-          {skill}
+  {
+    !others ? (
+      <>
+        <h3 class="mb-4 text-xl font-semibold text-slate-600 dark:text-slate-200">
+          {title}
+        </h3>
+        <div class="flex flex-wrap">
+          {skills?.map((skill) => (
+            <div class="mx-1 my-2 rounded-full bg-slate-200 px-2 text-sm font-medium text-slate-600 dark:bg-blue/60 dark:text-slate-200">
+              {skill}
+            </div>
+          ))}
+        </div>
+      </>
+    ) : (
+      others.map((category, idx) => (
+        <div class="mb-4">
+          <h3 class="mb-2 text-lg font-semibold text-slate-600 dark:text-slate-200">
+            {category.title}
+          </h3>
+          <div class="flex flex-wrap">
+            {category.skills.map((skill) => (
+              <div class="mx-1 my-2 rounded-full bg-slate-200 px-2 text-sm font-medium text-slate-600 dark:bg-blue/60 dark:text-slate-200">
+                {skill}
+              </div>
+            ))}
+          </div>
         </div>
       ))
-    }
-  </div>
+    )
+  }
 </div>

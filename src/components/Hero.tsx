@@ -49,7 +49,7 @@ export const Hero = () => {
           </h2>
         </div>
       </div>
-      <p className="mt-7 text-xl text-slate-600 dark:text-slate-200">
+      <p className="mt-7 text-lg text-slate-600 dark:text-slate-200">
         Mostly TypeScript developer using React, React native & Vue. I do like
         building complex interfaces and constantly testing new technologies and
         techniques.
