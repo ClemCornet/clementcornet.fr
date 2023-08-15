@@ -55,7 +55,7 @@ export const Experiences = ({}) => {
 
   return (
     <section className="mb-16">
-      <h2 className="mb-3 text-2xl font-medium text-blue dark:text-white">
+      <h2 className="mb-3 text-2xl font-medium text-blue dark:text-slate-200">
         Work experience
       </h2>
       <ul className="flex flex-col">
@@ -63,13 +63,13 @@ export const Experiences = ({}) => {
           <li
             key={idx}
             onClick={() => handleItemClick(idx)}
-            className="flex cursor-pointer flex-col border-b px-1 py-4"
+            className="flex cursor-pointer flex-col border-b border-slate-400 px-1 py-4"
           >
             <div className="flex items-center justify-between">
               <div className="w-3/12 font-medium text-slate-400">
                 {item.year}
               </div>
-              <div className="w-7/12 text-slate-600 dark:text-white">
+              <div className="w-7/12 text-slate-600 dark:text-slate-200">
                 <span>{item.post}</span>
                 {item.company && (
                   <span className="italic"> - {item.company}</span>
@@ -91,12 +91,12 @@ export const Experiences = ({}) => {
               </div>
             </div>
             {collapsedIndex === idx && (
-              <div className="mt-4">
-                <ul className="list-none text-white">
+              <div className="mt-4 md:mt-0">
+                <ul className="mt-4 list-none">
                   {item.contentSkills.map((skill, idx) => (
                     <li
                       key={idx}
-                      className="custom-li-disc mb-3 text-slate-600 dark:text-white"
+                      className="custom-li-disc mb-3 text-slate-600 dark:text-slate-200"
                     >
                       {skill}
                     </li>
