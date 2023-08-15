@@ -19,22 +19,14 @@ const { title } = Astro.props
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body
-    class="bg-slate-100 dark:bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] dark:from-blue dark:via-slate-800 dark:via-55% dark:to-black dark:to-100%"
-  >
-    <TheNavigation />
-    <TopNavigation client:load />
-    <slot />
-    <TheFooter />
+  <body class="bg-slate-900">
+    <main
+      class="bg-slate-100 dark:bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] dark:from-blue dark:via-slate-800 dark:via-55% dark:to-black dark:to-100%"
+    >
+      <TheNavigation />
+      <TopNavigation client:load />
+      <slot />
+      <TheFooter />
+    </main>
   </body>
 </html>
-<style is:global>
-  /* html {
-    font-family: system-ui, sans-serif;
-    font-feature-setting: normal;
-  }
-  code {
-    font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-  } */
-</style>
