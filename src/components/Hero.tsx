@@ -32,9 +32,9 @@ export const Hero = () => {
 
   return (
     <section className={`transition duration-300 ${opacity} mb-16`}>
-      <div className="flex items-center space-x-6">
-        <div className="h-[110px] w-[110px] rounded-full bg-slate-300 p-[10px] dark:bg-blue/20">
-          <div className="h-[90px] w-[90px] rounded-full ring-[4px] ring-blue/90 dark:ring-blue/60">
+      <div className="flex space-x-6 md:items-center">
+        <div className="h-[50px] w-[50px] rounded-full bg-slate-300 p-[10px] dark:bg-blue/20 md:h-[110px] md:w-[110px]">
+          <div className="h-[50px] w-[50px] rounded-full ring-[4px] ring-blue/90 dark:ring-blue/60 md:h-[90px] md:w-[90px]">
             <img
               src="/assets/profile-picture.png"
               alt="Profile picture"
@@ -43,13 +43,13 @@ export const Hero = () => {
           </div>
         </div>
         <div>
-          <h1 className="text-3xl font-bold text-blue">Clement</h1>
-          <h2 className="text-lg text-slate-400">
+          <h1 className="text-2xl font-bold text-blue md:text-3xl">Clement</h1>
+          <h2 className="flex w-3/4 text-lg text-slate-400 md:w-full">
             Front end developer at Le Collectionist
           </h2>
         </div>
       </div>
-      <p className="mt-7 text-lg text-slate-600 dark:text-slate-200">
+      <p className="mt-7 text-slate-600 dark:text-slate-200 md:text-lg">
         Mostly TypeScript developer using React, React native & Vue. I do like
         building complex interfaces and constantly testing new technologies and
         techniques.

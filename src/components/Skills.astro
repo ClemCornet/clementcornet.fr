@@ -21,7 +21,7 @@ const cards: Cards = {
       "redux",
       "pinia",
     ],
-    style: "col-span-3 row-span-2",
+    style: "col-span-5 md:col-span-3 md:row-span-2",
   },
   backend: {
     title: "backend",
@@ -35,12 +35,14 @@ const cards: Cards = {
       "prisma",
       "typeorm",
     ],
-    style: "col-span-3 col-start-1 row-span-2 row-start-3",
+    style:
+      "col-span-5 md:col-span-3 md:col-start-1 md:row-span-2 md:row-start-3",
   },
   mobile: {
     title: "mobile",
     skills: ["react native", "expo", "react navigation", "reanimated"],
-    style: "col-span-2 col-start-4 row-span-4 row-start-1",
+    style:
+      "col-span-5 md:col-span-2 md:col-start-4 md:row-span-4 md:row-start-1",
   },
   other: [
     {
@@ -62,7 +64,7 @@ const cards: Cards = {
 }
 ---
 
-<section>
+<section class="mb-16">
   <h2 class="mb-3 w-full text-2xl font-medium text-blue dark:text-white">
     Skills
   </h2>
