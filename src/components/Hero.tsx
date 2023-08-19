@@ -44,8 +44,9 @@ export const Hero = () => {
         </div>
         <div>
           <h1 className="text-2xl font-bold text-blue md:text-3xl">Clement</h1>
-          <h2 className="flex w-3/4 text-lg text-slate-400 md:w-full">
-            Front end developer at Le Collectionist
+          <h2 className="flex flex-col text-slate-400 md:w-full md:flex-row md:text-lg">
+            <span className="md:pr-1">Front end developer at</span>
+            <span>Le Collectionist</span>
           </h2>
         </div>
       </div>
