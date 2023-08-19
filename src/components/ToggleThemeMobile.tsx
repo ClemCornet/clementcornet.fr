@@ -16,7 +16,7 @@ export const ToggleThemeMobile = () => {
 
   return (
     <div
-      className={`${opacity} m-w-fit sticky bottom-6 z-50 flex flex-row-reverse`}
+      className={`${opacity} m-w-fit sticky bottom-6 z-50 flex flex-row-reverse md:hidden`}
     >
       <div className="mr-2 rounded-full border border-slate-200 p-3 backdrop-blur transition duration-300 will-change-transform dark:border-none md:justify-between [@supports(backdrop-filter:blur(0px))]:bg-white/[3%]">
         <ToggleTheme iconsSize="1.2em" />
