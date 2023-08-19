@@ -3,6 +3,7 @@ import "../styles/main.css"
 import TheNavigation from "../components/TheNavigation.astro"
 import TheFooter from "../components/TheFooter.astro"
 import { TopNavigation } from "../components/TopNavigation"
+import { ToggleThemeMobile } from "../components/ToggleThemeMobile"
 export interface Props {
   title: string
 }
@@ -27,6 +28,7 @@ const { title } = Astro.props
       <TopNavigation client:load />
       <slot />
       <TheFooter />
+      <ToggleThemeMobile client:load />
     </main>
   </body>
 </html>
