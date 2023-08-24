@@ -1,9 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro"
+import { Experiences } from "../components/Experiences"
+
+import Skills from "../components/Skills.astro"
 ---
 
 <Layout title="Welcome to Astro.">
-  <main>
-    <h1>About page</h1>
+  <main class="container mx-auto mt-24 max-w-2xl px-4 md:mt-40 md:px-0">
+    <p class="mb-12 mt-7 text-slate-600 dark:text-slate-200 md:text-lg">
+      Mostly TypeScript developer using React, React native & Vue. I do like
+      building complex interfaces and constantly testing new technologies and
+      techniques.
+    </p>
+    <Experiences client:load />
+    <Skills />
   </main>
 </Layout>

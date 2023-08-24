@@ -13,28 +13,32 @@ export const HeroNavigation = forwardRef<RefType, PropsType>(
       {
         id: "about",
         component: <Account style={{ fontSize: "1rem" }} />,
-        link: "/",
+        link: "/about",
         text: "About",
       },
       {
-        id: "skills",
+        id: "til",
         component: <Coffee style={{ fontSize: "1.10rem" }} />,
-        link: "/",
-        text: "Skills",
+        link: "/today-i-learned",
+        text: "Posts",
       },
       {
         id: "twitter",
         component: <Twitter style={{ fontSize: "1rem" }} />,
-        link: "/",
+        link: "https://twitter.com/ClemCornet",
         text: "Twitter",
       },
       {
         id: "github",
         component: <Github style={{ fontSize: "1rem" }} />,
-        link: "/",
+        link: "https://github.com/ClemCornet",
         text: "Github",
       },
     ]
+
+    const isActive = (link: string) => {
+      return props.currentPath === link
+    }
 
     return (
       <nav ref={ref} {...props}>
@@ -78,7 +82,14 @@ export const HeroNavigation = forwardRef<RefType, PropsType>(
               >
                 {component}
               </div>
-              <a className="text-sm text-slate-400 md:text-base" href={link}>
+              <a
+                className={`${
+                  isActive(link)
+                    ? "font-semibold text-slate-500 dark:text-slate-300"
+                    : "text-slate-400"
+                } text-center text-sm md:text-base`}
+                href={link}
+              >
                 {text}
               </a>
             </li>

@@ -41,7 +41,7 @@ export const Experiences = ({}) => {
       company: "Travel industry",
       post: "Traffic manager",
       contentSkills: [
-        "Management of ads campaigns",
+        "Ad Campaigns Oversight",
         "Acquisition, retargeting",
         "Excel & monitoring tools",
       ],
