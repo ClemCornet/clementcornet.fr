@@ -8,7 +8,7 @@ type RefType = HTMLDivElement
 type PropsType = { [x: string]: any }
 
 export const HeroNavigation = forwardRef<RefType, PropsType>(
-  ({ ...props }, ref) => {
+  ({ currentPath, ...restProps }, ref) => {
     const items = [
       {
         id: "about",
@@ -37,19 +37,20 @@ export const HeroNavigation = forwardRef<RefType, PropsType>(
     ]
 
     const isActive = (link: string) => {
-      return props.currentPath === link
+      return currentPath === link
     }
 
     return (
-      <nav ref={ref} {...props}>
+      <nav ref={ref} {...restProps}>
         <ul className="flex w-full justify-around space-x-6 font-medium md:justify-normal">
           {items.map(({ id, component, link, text }) => (
-            <li
-              key={id}
-              className="group relative flex cursor-pointer flex-col items-center justify-center md:flex-row md:justify-start"
-            >
-              <div
-                className="
+            <li key={id}>
+              <a
+                className="group relative flex cursor-pointer flex-col items-center justify-center md:flex-row md:justify-start"
+                href={link}
+              >
+                <div
+                  className="
               relative
               mb-2
               rounded-lg
@@ -79,18 +80,18 @@ export const HeroNavigation = forwardRef<RefType, PropsType>(
               dark:group-hover:after:blur-md
               md:mb-0
               md:mr-2"
-              >
-                {component}
-              </div>
-              <a
-                className={`${
-                  isActive(link)
-                    ? "font-semibold text-slate-500 dark:text-slate-300"
-                    : "text-slate-400"
-                } text-center text-sm md:text-base`}
-                href={link}
-              >
-                {text}
+                >
+                  {component}
+                </div>
+                <span
+                  className={`${
+                    isActive(link)
+                      ? "font-semibold text-slate-500 dark:text-slate-300"
+                      : "text-slate-400"
+                  } text-center text-sm md:text-base`}
+                >
+                  {text}
+                </span>
               </a>
             </li>
           ))}
