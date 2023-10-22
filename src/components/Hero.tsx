@@ -51,9 +51,10 @@ export const Hero = () => {
         </div>
       </div>
       <p className="mt-7 text-slate-600 dark:text-slate-200 md:text-lg">
-        Mostly TypeScript developer using React, React native & Vue. I do like
-        building complex interfaces and constantly testing new technologies and
-        techniques.
+        I am a TypeScript developer who works with React, React
+        Native, and Vue.
+        <br />I enjoy creating complex user interfaces and
+        continuously experimenting with new technologies and techniques.
       </p>
       <HeroNavigation className={"mt-8"} ref={navigationRef} />
     </section>
