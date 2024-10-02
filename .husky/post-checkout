@@ -1,0 +1,12 @@
+PACKAGE_LOCK_REGEX="(^pnpm-lock\.yaml)"
+
+DIFF="$(git diff --name-only HEAD@{1} HEAD)"
+
+if [[ $DIFF ]]; then
+  PACKAGES=("$DIFF | grep -E "$PACKAGE_LOCK_REGEX")")
+
+  if [[ $PACKAGES ]]; then
+    echo "📦 $PACKAGES was changed. Running pnpm install to update your dependencies..."
+    pnpm install --shamefully-hoist
+  fi
+fi
