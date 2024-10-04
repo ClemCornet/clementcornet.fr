@@ -19,8 +19,8 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@nuxt/eslint',
     '@nuxtjs/color-mode',
-    '@nuxtjs/google-fonts',
     '@nuxt/image',
+    '@nuxt/fonts',
   ],
 
   // Color mode

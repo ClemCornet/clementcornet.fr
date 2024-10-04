@@ -7,4 +7,15 @@ export default createConfigForNuxt({
   },
 },
 ...tailwind.configs['flat/recommended'],
-)
+).override('nuxt/vue/rules', {
+  rules: {
+    'vue/max-attributes-per-line': ['error', {
+      singleline: {
+        max: 3,
+      },
+      multiline: {
+        max: 3,
+      },
+    }],
+  },
+})
