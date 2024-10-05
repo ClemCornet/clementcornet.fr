@@ -1,5 +1,5 @@
 <template>
-  <UContainer :ui="{ constrained: 'max-w-5xl' }">
+  <UContainer class="min-h-screen" :ui="{ constrained: 'max-w-5xl' }">
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>

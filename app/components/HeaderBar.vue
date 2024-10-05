@@ -37,7 +37,7 @@ defineShortcuts({
       <div class="flex items-center">
         <nuxt-link
           to="/"
-          class="mx-3 flex hover:text-white"
+          class="mx-3 flex font-semibold hover:text-white"
         >
           <UIcon
             name="i-iconoir:edit" class="mr-1.5 size-5"
@@ -46,7 +46,7 @@ defineShortcuts({
         </nuxt-link>
         <nuxt-link
           to="/"
-          class="mx-3 flex hover:text-white"
+          class="mx-3 flex font-semibold hover:text-white"
         >
           <UIcon
             name="i-iconoir:user-bag"

@@ -6,5 +6,6 @@
   <div>
     <HeaderBar />
     <slot />
+    <FooterBar />
   </div>
 </template>
