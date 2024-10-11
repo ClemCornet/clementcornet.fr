@@ -1,21 +1,31 @@
-import { createConfigForNuxt } from '@nuxt/eslint-config/flat'
 import tailwind from 'eslint-plugin-tailwindcss'
+import withNuxt from './.nuxt/eslint.config.mjs'
 
-export default createConfigForNuxt({
-  features: {
-    stylistic: true,
+export default withNuxt({
+  files: ['**/*.ts', '**/*.tsx', '**/*.vue'],
+  rules: {
+    'no-console': 'warn',
+    'max-params': [
+      'error',
+      {
+        max: 2,
+      },
+    ],
   },
 },
 ...tailwind.configs['flat/recommended'],
-).override('nuxt/vue/rules', {
+).prepend({
   rules: {
-    'vue/max-attributes-per-line': ['error', {
-      singleline: {
-        max: 3,
+    'vue/define-props-declaration': ['error', 'type-based'],
+    'vue/no-empty-component-block': 'error',
+  },
+}).override('nuxt/vue/rules', {
+  rules: {
+    'vue/block-order': [
+      'error',
+      {
+        order: ['script', 'template', 'styles'],
       },
-      multiline: {
-        max: 3,
-      },
-    }],
+    ],
   },
 })

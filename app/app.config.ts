@@ -4,12 +4,12 @@ export default defineAppConfig({
     button: {
       color: {
         white: {
-          solid: 'dark:border dark:border-gray-700 dark:bg-gray-800/30 dark:hover:bg-gray-900/30',
+          solid: 'dark:border dark:border-neutral-500 dark:bg-gray-800/30',
         },
       },
     },
     tooltip: {
-      background: 'dark:bg-gray-800 dark:border dark:border-gray-700',
+      background: 'dark:bg-gray-800 dark:border dark:border-neutral-700',
     },
   },
 })

@@ -43,6 +43,12 @@ export default defineNuxtConfig({
     },
   },
 
+  eslint: {
+    config: {
+      stylistic: true,
+    },
+  },
+
   routeRules: {
     '/': { prerender: true },
   },
