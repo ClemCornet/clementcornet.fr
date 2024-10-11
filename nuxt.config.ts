@@ -21,6 +21,7 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@nuxt/image',
     '@nuxt/fonts',
+    '@nuxthq/studio',
   ],
 
   // Color mode
@@ -40,6 +41,12 @@ export default defineNuxtConfig({
     enabled: true,
     timeline: {
       enabled: true,
+    },
+  },
+
+  eslint: {
+    config: {
+      stylistic: true,
     },
   },
 

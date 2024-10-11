@@ -18,20 +18,23 @@ defineShortcuts({
 <template>
   <header
     class="
-  relative
-  py-4
-  after:absolute
-  after:bottom-0
-  after:left-1/2
-  after:h-[0.5px]
-  after:w-screen
-  after:-translate-x-1/2
-  after:bg-neutral-200/30
-  after:content-['']
+    relative
+    py-4
+    after:absolute
+    after:bottom-0
+    after:left-1/2
+    after:h-[0.5px]
+    after:w-screen
+    after:-translate-x-1/2
+    after:bg-neutral-200/30
+    after:content-['']
   "
   >
     <nav class="flex items-center justify-between">
-      <nuxt-link to="/" class="text-xl font-extrabold">
+      <nuxt-link
+        to="/"
+        class="text-xl font-extrabold"
+      >
         Clem C
       </nuxt-link>
       <div class="flex items-center">
@@ -40,7 +43,8 @@ defineShortcuts({
           class="mx-3 flex font-semibold hover:text-white"
         >
           <UIcon
-            name="i-iconoir:edit" class="mr-1.5 size-5"
+            name="i-iconoir:edit"
+            class="mr-1.5 size-5"
           />
           Blog
         </nuxt-link>
@@ -56,7 +60,10 @@ defineShortcuts({
         </nuxt-link>
         <div class="ml-8 flex gap-2">
           <ColorModeSwitcher @toggle-theme="toggleTheme" />
-          <LangSwitcher :lang="lang" @change-locale="changeLocale" />
+          <LangSwitcher
+            :lang="lang"
+            @change-locale="changeLocale"
+          />
         </div>
       </div>
     </nav>

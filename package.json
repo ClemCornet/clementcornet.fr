@@ -22,9 +22,8 @@
   },
   "devDependencies": {
     "@nuxt/eslint": "^0.5.7",
-    "@nuxt/eslint-config": "^0.5.7",
+    "@nuxthq/studio": "^2.1.1",
     "@nuxtjs/tailwindcss": "^6.12.1",
-    "eslint": "^9.11.1",
     "eslint-plugin-tailwindcss": "^3.17.4",
     "husky": "^9.1.6",
     "lint-staged": "^15.2.10",
