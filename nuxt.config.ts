@@ -21,6 +21,7 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@nuxt/image',
     '@nuxt/fonts',
+    '@nuxthq/studio',
   ],
 
   // Color mode
