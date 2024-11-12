@@ -9,13 +9,13 @@ defineEmits<{
 
 <template>
   <UTooltip
-    text="Toggle lang"
-    :shortcuts="['l']"
     color="gray"
+    :shortcuts="['l']"
+    text="Toggle lang"
   >
     <UButton
-      size="sm"
       color="white"
+      size="sm"
       variant="solid"
       @click="$emit('changeLocale')"
     >

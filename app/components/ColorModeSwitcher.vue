@@ -6,14 +6,15 @@ defineEmits<{
 
 <template>
   <UTooltip
-    text="Toggle color mode"
-    :shortcuts="['t']"
     color="gray"
+    :shortcuts="['t']"
+    text="Toggle color mode"
   >
     <UButton
-      :icon="$colorMode.value === 'light' ? `iconoir:sun-light` : `iconoir:half-moon`"
-      size="sm"
       color="white"
+      :icon="$colorMode.value === 'light'
+        ? `iconoir:sun-light` : `iconoir:half-moon`"
+      size="sm"
       variant="solid"
       @click="$emit('toggleTheme')"
     />

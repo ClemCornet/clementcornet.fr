@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+import defaultTheme from 'tailwindcss/defaultTheme'
 
 export default <Partial<Config>>{
   content: [
@@ -15,6 +16,12 @@ export default <Partial<Config>>{
     './app.config.{js,ts}',
     'content/**/*.md',
   ],
-  theme: {},
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+      },
+    },
+  },
   darkMode: 'selector',
 }

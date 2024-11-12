@@ -1,18 +1,5 @@
 export default defineNuxtConfig({
-  future: {
-    compatibilityVersion: 4,
-  },
-  // Nuxt app
-  app: {
-    pageTransition: { name: 'page', mode: 'out-in' },
-    head: {
-      templateParams: {
-        separator: '•',
-      },
-    },
-  },
 
-  // Nuxt modules
   modules: [
     '@nuxt/ui',
     '@nuxtjs/tailwindcss',
@@ -24,9 +11,24 @@ export default defineNuxtConfig({
     '@nuxthq/studio',
   ],
 
-  // Color mode
+  devtools: {
+    enabled: true,
+    timeline: {
+      enabled: true,
+    },
+  },
+
+  app: {
+    pageTransition: { name: 'page', mode: 'out-in' },
+    head: {
+      templateParams: {
+        separator: '•',
+      },
+    },
+  },
+
   colorMode: {
-    preference: 'system',
+    preference: 'light',
     fallback: 'light',
     hid: 'nuxt-color-mode-script',
     globalName: '__NUXT_COLOR_MODE__',
@@ -37,22 +39,18 @@ export default defineNuxtConfig({
     storageKey: 'nuxt-color-mode',
   },
 
-  devtools: {
-    enabled: true,
-    timeline: {
-      enabled: true,
-    },
+  routeRules: {
+    '/': { prerender: true },
   },
+  future: {
+    compatibilityVersion: 4,
+  },
+
+  compatibilityDate: '2024-10-02',
 
   eslint: {
     config: {
       stylistic: true,
     },
   },
-
-  routeRules: {
-    '/': { prerender: true },
-  },
-
-  compatibilityDate: '2024-10-02',
 })

@@ -1,20 +1,17 @@
 <template>
-  <UContainer
-    class="min-h-screen"
-    :ui="{ constrained: 'max-w-5xl' }"
-  >
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
-  </UContainer>
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>
 
 <style lang="postcss">
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  @apply bg-gray-100/30 text-gray-800;
+  @apply bg-gray-100/40 text-gray-800;
 }
-.dark body {
-  @apply bg-gray-800/30 text-gray-200;
+
+.dark {
+  body {
+    @apply bg-slate-800/40 text-gray-100;
+  }
 }
 </style>
