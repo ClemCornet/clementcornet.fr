@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const lang = ref<'en' | 'fr'>('en') // todo type with i18n locales
+const lang = ref<'en' | 'fr'>('en')
 const changeLocale = () => {
   lang.value = lang.value === 'en' ? 'fr' : 'en'
 }
@@ -26,38 +26,35 @@ defineShortcuts({
     after:h-[0.5px]
     after:w-screen
     after:-translate-x-1/2
-    after:bg-neutral-200/30
+    after:bg-neutral-600/40
     after:content-['']
+    dark:after:bg-neutral-200/30
   "
   >
     <nav class="flex items-center justify-between">
       <nuxt-link
-        to="/"
         class="text-xl font-extrabold"
+        to="/"
       >
         Clem C
       </nuxt-link>
       <div class="flex items-center">
-        <nuxt-link
-          to="/"
-          class="mx-3 flex font-semibold hover:text-white"
+        <UButton
+          color="gray"
+          icon="i-iconoir-edit"
+          :to="{ name: 'blog' }"
+          variant="link"
         >
-          <UIcon
-            name="i-iconoir:edit"
-            class="mr-1.5 size-5"
-          />
           Blog
-        </nuxt-link>
-        <nuxt-link
-          to="/"
-          class="mx-3 flex font-semibold hover:text-white"
+        </UButton>
+        <UButton
+          color="gray"
+          icon="i-iconoir-user-bag"
+          :to="{ name: 'resume' }"
+          variant="link"
         >
-          <UIcon
-            name="i-iconoir:user-bag"
-            class="mr-1.5 size-5"
-          />
           Resume
-        </nuxt-link>
+        </UButton>
         <div class="ml-8 flex gap-2">
           <ColorModeSwitcher @toggle-theme="toggleTheme" />
           <LangSwitcher
