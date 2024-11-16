@@ -1,3 +1,36 @@
+<script setup lang="ts">
+import type { BlogPost, Categories } from '~/types'
+
+const selectedCategory = ref<Categories | 'all'>('all')
+const { data: posts } = useAsyncData('posts', () =>
+  queryContent<BlogPost>('/blog')
+    .sort({ date: -1 })
+    .limit(2)
+    .find(),
+{
+  watch: [selectedCategory],
+},
+)
+
+const queryKeys = computed(() => posts.value?.map(post => post.slug))
+const { data: views } = await useFetch(`/api/viewsCount`, {
+  params: { keys: queryKeys.value },
+})
+
+const postsWithViews = computed(() => {
+  const viewsData = views.value?.data
+  if (!posts.value || !viewsData) return []
+
+  return posts.value.map((post) => {
+    const views = viewsData.find(view => view.key === post.slug)?.count as number | undefined
+    return {
+      ...post,
+      views: views || 0,
+    }
+  })
+})
+</script>
+
 <template>
   <UContainer
     :ui="{
@@ -8,11 +41,11 @@
   >
     <main class="mx-auto grid grid-cols-2 gap-20">
       <HomeImage />
-      <div class="flex flex-1 flex-col justify-start py-8">
-        <h1 class="mb-12 text-4xl font-bold">
+      <div class="flex flex-1 flex-col justify-center">
+        <h1 class="mb-6 text-4xl font-bold">
           Hello there.
         </h1>
-        <p class="text-md pb-4 font-light">
+        <p class="text-md mb-2 font-light">
           I'm <span class="font-bold">Clement</span>, front-end developer who enjoy creating
           <br><span class="font-bold">user interfaces.</span>
         </p>
@@ -37,7 +70,10 @@
             name="i-logos-tailwindcss-icon"
           />
         </div>
-        <HomeBlogFeatured />
+        <HomeBlogFeatured
+          v-if="posts"
+          :posts="postsWithViews"
+        />
       </div>
     </main>
   </UContainer>
