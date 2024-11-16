@@ -1,10 +1,7 @@
 <template>
-  <UContainer
-    class="flex min-h-screen flex-col justify-between"
-    :ui="{ constrained: 'max-w-5xl' }"
-  >
+  <div class="flex min-h-screen flex-col">
     <LayoutHeader />
     <slot />
     <LayoutFooter />
-  </UContainer>
+  </div>
 </template>

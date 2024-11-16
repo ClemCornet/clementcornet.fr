@@ -16,28 +16,35 @@ defineShortcuts({
 </script>
 
 <template>
-  <header
-    class="
-    relative
-    py-4
-    after:absolute
-    after:bottom-0
-    after:left-1/2
-    after:h-[0.5px]
-    after:w-screen
-    after:-translate-x-1/2
-    after:bg-neutral-600/40
-    after:content-['']
-    dark:after:bg-neutral-200/30
-  "
+  <UContainer
+    :ui="{
+      base: `
+      after:-translate-x-1/2
+      after:absolute
+      after:bg-neutral-600/40
+      after:bottom-0
+      after:content-['']
+      after:h-[0.5px]
+      after:left-1/2
+      after:w-screen
+      dark:after:bg-neutral-200/30
+      flex
+      justify-between
+      py-4
+      relative
+      w-full
+    `,
+      constrained: 'max-w-5xl',
+      padding: 'px-4 sm:px-6 lg:px-0',
+    }"
   >
+    <nuxt-link
+      class="text-xl font-extrabold"
+      to="/"
+    >
+      Clem C
+    </nuxt-link>
     <nav class="flex items-center justify-between">
-      <nuxt-link
-        class="text-xl font-extrabold"
-        to="/"
-      >
-        Clem C
-      </nuxt-link>
       <div class="flex items-center">
         <UButton
           color="gray"
@@ -64,5 +71,5 @@ defineShortcuts({
         </div>
       </div>
     </nav>
-  </header>
+  </UContainer>
 </template>

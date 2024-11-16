@@ -39,11 +39,21 @@ export default defineNuxtConfig({
     storageKey: 'nuxt-color-mode',
   },
 
+  runtimeConfig: {
+    redis: {
+      host: '127.0.0.1',
+      port: 6379,
+    },
+  },
+
   routeRules: {
     '/': { prerender: true },
   },
   future: {
     compatibilityVersion: 4,
+  },
+  experimental: {
+    typedPages: true,
   },
 
   compatibilityDate: '2024-10-02',
