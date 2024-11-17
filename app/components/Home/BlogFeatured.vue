@@ -1,11 +1,25 @@
-<!-- <script setup lang="ts">
+<script setup lang="ts">
+import type { BlogPost } from '~/types'
 
-</script> -->
+defineProps<{
+  posts: Array<BlogPost & { views: number }>
+}>()
+</script>
 
 <template>
   <div>
-    <h3 class="text-sm uppercase tracking-wide text-gray-400">
+    <h3 class="mb-4 text-sm uppercase tracking-wide text-gray-400">
       Featured posts
     </h3>
+    <ul>
+      <li
+        v-for="post in posts"
+        :key="post._id"
+      >
+        <BlogCard
+          :blog-post="post"
+        />
+      </li>
+    </ul>
   </div>
 </template>
