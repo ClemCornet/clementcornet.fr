@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxt/fonts',
     '@nuxthq/studio',
+    '@nuxtjs/device',
   ],
 
   devtools: {

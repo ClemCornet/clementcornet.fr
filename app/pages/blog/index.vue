@@ -4,7 +4,7 @@ import type { BlogPost, BlogCategories, Categories } from '~/types'
 const selectedCategory = ref<Categories | 'all'>('all')
 const [postsResult, categoriesResult] = await Promise.all([
   useAsyncData(
-    'posts',
+    'blog-posts',
     () =>
       queryContent<BlogPost>('/blog')
         .where({
