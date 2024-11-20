@@ -33,7 +33,7 @@ const links = [
   after:absolute
   after:inset-0
   after:-z-10
-  after:border-b
+  after:border-t
   after:border-neutral-600/20
   after:bg-white/80
   dark:backdrop-brightness-50

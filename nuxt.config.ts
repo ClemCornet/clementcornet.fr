@@ -40,6 +40,15 @@ export default defineNuxtConfig({
     storageKey: 'nuxt-color-mode',
   },
 
+  content: {
+    highlight: {
+      theme: {
+        default: 'github-light',
+        dark: 'tokyo-night',
+      },
+    },
+  },
+
   runtimeConfig: {
     redis: {
       host: '',

@@ -1,9 +1,20 @@
 <script setup lang="ts">
+import type { BlogPost } from '~/types'
+
 const params = useParams<{ slug: string }>()
-const { data } = await useFetch(`/api/viewsCount/${params.value.slug}`)
+const { data: post, status: postStatus } = await useAsyncData(() =>
+  queryContent<BlogPost>(`/blog/${params.value.slug}`)
+    .findOne(),
+)
+
+const { data: viewsCount, status: viewsStatus } = await useFetch(`/api/viewsCount/${params.value.slug}`)
 await useFetch(`/api/viewsCount/${params.value.slug}`, {
   method: 'PUT',
-  body: { views: data.value?.count },
+  body: { views: viewsCount.value },
+})
+
+const isArticleLoading = computed(() => {
+  return postStatus.value === 'pending' && viewsStatus.value === 'pending'
 })
 </script>
 
@@ -11,21 +22,32 @@ await useFetch(`/api/viewsCount/${params.value.slug}`, {
   <UContainer
     :ui="{
       base: 'w-full flex-1',
-      constrained: 'max-w-2xl',
+      constrained: 'max-w-xl',
       padding: 'py-12 px-4 sm:px-6 lg:px-0',
     }"
   >
-    <header>
-      <div class="flex items-center">
-        <UIcon
-          class="mr-0.5 size-5"
-          name="i-iconoir-eye-empty"
-        />
-        <span>{{ data?.count }}</span>
-      </div>
-    </header>
-    <main>
-      <ContentDoc />
-    </main>
+    <div v-if="isArticleLoading">
+      ...loading
+    </div>
+    <article v-else-if="post && viewsCount">
+      <ArticleHeader
+        :post="post"
+        :views-count="viewsCount"
+      />
+      <main class="py-8">
+        <ContentDoc class="content-md" />
+      </main>
+    </article>
   </UContainer>
 </template>
+
+<style lang="postcss">
+.content-md {
+  p {
+    @apply mb-2;
+  }
+  .prose {
+    @apply border border-neutral-200/30 rounded-xl p-4 text-sm;
+  }
+}
+</style>

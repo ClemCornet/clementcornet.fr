@@ -2,14 +2,14 @@ export default defineEventHandler(async (event) => {
   const id = getRouterParam(event, 'id') as string
   const redis = useStorage('redis')
   try {
-    let count = await redis.getItem(id)
+    let count = await redis.getItem<number>(id)
 
     if (count === null) {
       count = 1
       await redis.setItem(id, count)
     }
 
-    return { count }
+    return count
   }
   catch {
     throw createError({

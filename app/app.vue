@@ -1,6 +1,12 @@
 <script setup lang="ts">
 const { isMobile, isDesktop } = useDevice()
 
+useHead({
+  htmlAttrs: {
+    class: 'scroll-smooth',
+  },
+})
+
 const layout = computed(() => {
   if (isMobile) return 'mobile'
   if (isDesktop) return 'desktop'

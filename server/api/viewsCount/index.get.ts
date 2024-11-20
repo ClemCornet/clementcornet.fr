@@ -1,14 +1,14 @@
-export default defineEventHandler(async (event) => {
-  const query = getQuery(event)
-  const keys = query.keys as string[]
+export default defineEventHandler(async (_event) => {
   const redis = useStorage('redis')
+  const keys = await redis.getKeys()
+
   try {
     const allViews = await Promise.all(keys.map(async (key) => {
-      const count = await redis.getItem(key)
+      const count = await redis.getItem<number>(key)
       return { key, count }
     }))
 
-    return { data: allViews }
+    return allViews
   }
   catch {
     throw createError({

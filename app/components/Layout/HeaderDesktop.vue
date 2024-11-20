@@ -52,7 +52,7 @@ defineShortcuts({
     <nuxt-link
       active-class="text-gray-800 dark:text-gray-100"
       class="text-xl font-extrabold"
-      to="/"
+      :to="{ name: 'index' }"
     >
       Clem C
     </nuxt-link>
