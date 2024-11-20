@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { useMouseInElement } from '@vueuse/core'
 
-const imgTransformer = useImage()
-const image = ref('/assets/profile_picture.jpg')
+const { isMobile } = useDevice()
 
-const blurredImage = imgTransformer(
-  image.value,
-  { h: 1320, w: 920, blur: 12, q: 30 },
-)
+const image = computed(() => {
+  const src = isMobile ? '/assets/profile_picture_mobile.jpg' : '/assets/profile_picture_desktop.jpg'
+  const size = isMobile ? { h: 250, w: 350 } : { h: 920, w: '100%' }
+
+  return { src, size }
+})
 
 const target = ref(null)
 const { x: elementX, y: elementY } = useMouseInElement(target)
@@ -21,9 +22,9 @@ const { x: elementX, y: elementY } = useMouseInElement(target)
     group
     relative
     isolate
-    flex
-    flex-1
-    flex-col
+    mx-auto
+    mt-4
+    w-fit
     rounded-lg
     shadow
     ring-1
@@ -34,6 +35,7 @@ const { x: elementX, y: elementY } = useMouseInElement(target)
     before:hidden
     before:size-[calc(100%+4px)]
     before:rounded-[13px]
+    lg:mt-0
     before:lg:block dark:ring-slate-800"
     :style="{
       '--x': `${elementX}px`,
@@ -42,10 +44,12 @@ const { x: elementX, y: elementY } = useMouseInElement(target)
   >
     <NuxtImg
       class="overflow-hidden rounded-lg"
+      densities="x1 x2"
+      fit="cover"
+      :height="image.size.h"
       loading="lazy"
-      :placeholder="blurredImage"
-      :src="image"
-      width="100%"
+      :src="image.src"
+      :width="image.size.w"
     />
   </div>
 </template>

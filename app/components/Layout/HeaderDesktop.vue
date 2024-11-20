@@ -12,7 +12,7 @@ const links = [{
 
 const lang = ref<'en' | 'fr'>('en')
 const changeLocale = () => {
-  lang.value = lang.value === 'en' ? 'fr' : 'en'
+  lang.value = 'en'
 }
 
 const colorMode = useColorMode()
@@ -57,21 +57,25 @@ defineShortcuts({
       Clem C
     </nuxt-link>
     <nav class="flex items-center justify-between">
-      <ULink
-        v-for="link in links"
-        :key="link.name"
-        active-class="text-gray-800 dark:text-gray-100"
-        class="mr-4 flex items-center"
-        icon="i-iconoir-edit"
-        inactive-class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
-        :to="{ name: link.name }"
-      >
-        <UIcon
-          class="mr-1 size-4"
-          :name="link.icon"
-        />
-        {{ link.text }}
-      </ULink>
+      <ul class="flex justify-between">
+        <li
+          v-for="link in links"
+          :key="link.name"
+        >
+          <ULink
+            active-class="text-gray-800 dark:text-gray-100"
+            class="mr-4 flex items-center"
+            inactive-class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
+            :to="{ name: link.name }"
+          >
+            <UIcon
+              class="mr-1 size-4"
+              :name="link.icon"
+            />
+            <span>{{ link.text }}</span>
+          </ULink>
+        </li>
+      </ul>
       <div class="ml-6 flex gap-2">
         <ColorModeSwitcher @toggle-theme="toggleTheme" />
         <LangSwitcher

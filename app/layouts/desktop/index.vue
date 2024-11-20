@@ -1,7 +1,7 @@
 <template>
   <div class="flex min-h-screen flex-col">
-    <LayoutHeader />
+    <LayoutHeaderDesktop />
     <slot />
-    <LayoutFooter />
+    <LayoutFooterDesktop />
   </div>
 </template>
