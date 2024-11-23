@@ -11,6 +11,8 @@ const { data: posts } = useAsyncData('home-posts', () =>
   watch: [selectedCategory],
 },
 )
+const test = ref('test')
+console.log(test.value)
 
 const queryKeys = computed(() => posts.value?.map(post => post.slug))
 const { data: views } = await useFetch(`/api/viewsCount`, {

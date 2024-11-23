@@ -9,7 +9,7 @@
     "preview": "nuxt preview",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "prepare": "husky install"
+    "prepare": "husky init"
   },
   "dependencies": {
     "@iconify-json/iconoir": "^1.2.3",
@@ -32,5 +32,6 @@
     "lint-staged": "^15.2.10",
     "typescript": "^5.6.3",
     "vue-tsc": "^2.1.10"
-  }
+  },
+  "packageManager": "pnpm@9.11.0"
 }
