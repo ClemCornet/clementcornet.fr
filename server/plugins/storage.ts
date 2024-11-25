@@ -13,4 +13,11 @@ export default defineNitroPlugin(async () => {
   })
 
   storage.mount('redis', driver)
+  const redis = useStorage('redis')
+  await redis.setItem('views', [
+    { id: 'how-to-create-array', count: 3 },
+    { id: 'load-images-with-blur', count: 12 },
+    { id: 'updating-page-instantly', count: 0 },
+    { id: 'how-to-setup-redis', count: 22 },
+  ])
 })

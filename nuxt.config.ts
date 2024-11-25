@@ -27,7 +27,6 @@ export default defineNuxtConfig({
       },
     },
   },
-
   colorMode: {
     preference: 'light',
     fallback: 'light',
@@ -38,6 +37,15 @@ export default defineNuxtConfig({
     classSuffix: '',
     storage: 'localStorage',
     storageKey: 'nuxt-color-mode',
+  },
+
+  content: {
+    highlight: {
+      theme: {
+        default: 'github-light',
+        dark: 'tokyo-night',
+      },
+    },
   },
 
   runtimeConfig: {

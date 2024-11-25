@@ -1,6 +1,7 @@
 export default defineEventHandler(async (event) => {
   const id = getRouterParam(event, 'id') as string
   const body = await readBody(event)
+
   const { views } = body
   const redis = useStorage('redis')
   try {

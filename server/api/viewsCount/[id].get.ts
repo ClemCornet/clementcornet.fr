@@ -1,20 +1,17 @@
 export default defineEventHandler(async (event) => {
   const id = getRouterParam(event, 'id') as string
   const redis = useStorage('redis')
-  try {
-    let count = await redis.getItem(id)
 
-    if (count === null) {
-      count = 1
-      await redis.setItem(id, count)
-    }
+  const articles = await redis.getItem('views') as Array<{ id: string, count: number }>
 
-    return { count }
-  }
-  catch {
+  if (!articles) {
     throw createError({
-      statusCode: 404,
-      message: 'Failed to retrieve view count',
+      statusCode: 500,
+      message: 'Failed to retrieve or update view count',
     })
+  }
+  else {
+    const views = articles.find((item: { id: string }) => item.id === id)
+    return views ? views.count : 0
   }
 })
