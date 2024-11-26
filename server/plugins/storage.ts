@@ -9,7 +9,7 @@ export default defineNitroPlugin(async () => {
     host: config.redis.host,
     port: config.redis.port,
     password: config.redis.password,
-    username: config.redis.username,
+    username: 'default',
     db: 0,
   })
 
