@@ -2,7 +2,7 @@ export default defineEventHandler(async (event) => {
   const id = getRouterParam(event, 'id') as string
   const redis = useStorage('redis')
 
-  const articles = await redis.getItem('views') as Array<{ id: string, count: number }>
+  const articles = await redis.getItem<Array<{ id: string, count: number }>>('views')
 
   if (!articles) {
     throw createError({

@@ -1,34 +1,12 @@
 <script setup lang="ts">
-import type { BlogPost, Categories } from '~/types'
+import type { BlogPost } from '~/types'
 
-const selectedCategory = ref<Categories | 'all'>('all')
 const { data: posts } = useAsyncData('home-posts', () =>
   queryContent<BlogPost>('/blog')
     .sort({ date: -1 })
     .limit(2)
     .find(),
-{
-  watch: [selectedCategory],
-},
 )
-
-const queryKeys = computed(() => posts.value?.map(post => post.slug))
-const { data: views } = await useFetch(`/api/viewsCount`, {
-  params: { keys: queryKeys.value },
-})
-
-const postsWithViews = computed(() => {
-  const viewsData = views.value?.data
-  if (!posts.value || !viewsData) return []
-
-  return posts.value.map((post) => {
-    const views = viewsData.find(view => view.key === post.slug)?.count as number | undefined
-    return {
-      ...post,
-      views: views || 0,
-    }
-  })
-})
 </script>
 
 <template>
@@ -75,7 +53,7 @@ const postsWithViews = computed(() => {
         </div>
         <HomeBlogFeatured
           v-if="posts"
-          :posts="postsWithViews"
+          :posts="posts"
         />
       </div>
     </main>

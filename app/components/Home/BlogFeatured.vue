@@ -2,7 +2,7 @@
 import type { BlogPost } from '~/types'
 
 defineProps<{
-  posts: Array<BlogPost & { views: number }>
+  posts: Array<BlogPost>
 }>()
 </script>
 
