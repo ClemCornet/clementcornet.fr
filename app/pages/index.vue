@@ -17,6 +17,7 @@ const { data: posts } = useAsyncData('home-posts', () =>
       padding: 'px-4 sm:px-6 lg:px-0',
     }"
   >
+    <pre>{{ $config.redisHost }}</pre>
     <main class="mx-auto grid grid-cols-1 md:grid-cols-2 md:gap-20">
       <HomeImage />
       <div class="mt-12 flex flex-1 flex-col justify-center pb-12 md:mt-0 md:pb-0">
