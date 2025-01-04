@@ -3,7 +3,7 @@ import type { BlogPost } from '~/types'
 
 defineProps<{
   post: BlogPost
-  viewsCount?: number
+  viewsCount: number | null
 }>()
 </script>
 
